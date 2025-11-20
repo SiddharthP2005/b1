@@ -11,7 +11,7 @@ app.use(express.json());
 // ----------------------------
 //  CONNECT TO MONGODB ATLAS
 // ----------------------------
-const MONGO_URL = "mongodb+srv://taskuser:YourPassword123@cluster0.rf1bwtm.mongodb.net/?appName=Cluster0";
+const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.connect(MONGO_URL)
   .then(() => console.log("MongoDB connected"))
@@ -135,3 +135,4 @@ app.delete("/tasks/:username/:id", async (req, res) => {
 app.listen(PORT, () =>
   console.log("Backend running on port", PORT)
 );
+
